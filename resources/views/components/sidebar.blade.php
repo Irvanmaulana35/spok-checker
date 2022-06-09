@@ -48,11 +48,11 @@ $navigation_links = array_to_object($links);
                             <li class="{{ Request::routeIs('subject') ? 'active' : '' }}"><a class="nav-link"
                                     href="{{ route('subject.index') }}">Subjek</a></li>
                             <li class="{{ Request::routeIs('subject') ? 'active' : '' }}"><a class="nav-link"
-                                    href="{{ route('subject.index') }}">Predikat</a></li>
+                                    href="{{ route('predikat.index') }}">Predikat</a></li>
                             <li class="{{ Request::routeIs('subject') ? 'active' : '' }}"><a class="nav-link"
-                                    href="{{ route('subject.index') }}">Objek</a></li>
+                                    href="{{ route('object.index') }}">Objek</a></li>
                             <li class="{{ Request::routeIs('subject') ? 'active' : '' }}"><a class="nav-link"
-                                    href="{{ route('subject.index') }}">Keterangan</a></li>
+                                    href="{{ route('keterangan.index') }}">Keterangan</a></li>
                         </ul>
                     </li>
                 @else
