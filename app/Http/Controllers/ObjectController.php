@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Objek;
 use Illuminate\Http\Request;
 
 class ObjectController extends Controller
@@ -13,7 +14,8 @@ class ObjectController extends Controller
      */
     public function index()
     {
-        //
+        $data = Objek::all();
+        return view('pages.objek.index', compact('data'));
     }
 
     /**

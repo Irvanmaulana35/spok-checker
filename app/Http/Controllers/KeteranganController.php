@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Keterangan;
 use Illuminate\Http\Request;
 
 class KeteranganController extends Controller
@@ -13,7 +14,8 @@ class KeteranganController extends Controller
      */
     public function index()
     {
-        //
+        $data = Keterangan::all();
+        return view('pages.keterangan.index', compact('data'));
     }
 
     /**

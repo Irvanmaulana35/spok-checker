@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Predikat;
 use Illuminate\Http\Request;
 
 class PredikatController extends Controller
@@ -13,7 +14,8 @@ class PredikatController extends Controller
      */
     public function index()
     {
-        //
+        $data = Predikat::all();
+        return view('pages.predikat.index', compact('data'));
     }
 
     /**
