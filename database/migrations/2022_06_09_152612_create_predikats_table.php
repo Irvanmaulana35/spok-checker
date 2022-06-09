@@ -15,7 +15,7 @@ class CreatePredikatsTable extends Migration
     {
         Schema::create('predikats', function (Blueprint $table) {
             $table->id();
-            $table->string();
+            $table->string("kata_predikat");
             $table->timestamps();
         });
     }
