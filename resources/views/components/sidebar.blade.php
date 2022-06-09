@@ -39,11 +39,21 @@ $navigation_links = array_to_object($links);
                     </li>
                     <li class="{{ Request::routeIs($link->href) ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route($link->href) }}"><i
-                                class="fas fa-file"></i><span>Data Kata</span></a>
+                                class="fas fa-file"></i><span>Kalimat</span></a>
                     </li>
-                    <li class="{{ Request::routeIs($link->href) ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ route($link->href) }}"><i
-                                class="fas fa-folder"></i><span>Data Kalimat</span></a>
+                    <li class="dropdown active">
+                        <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
+                                class="fas fa-chart-bar"></i> <span>Master Data</span></a>
+                        <ul class="dropdown-menu">
+                            <li class="{{ Request::routeIs('subject') ? 'active' : '' }}"><a class="nav-link"
+                                    href="{{ route('subject.index') }}">Subjek</a></li>
+                            <li class="{{ Request::routeIs('subject') ? 'active' : '' }}"><a class="nav-link"
+                                    href="{{ route('subject.index') }}">Predikat</a></li>
+                            <li class="{{ Request::routeIs('subject') ? 'active' : '' }}"><a class="nav-link"
+                                    href="{{ route('subject.index') }}">Objek</a></li>
+                            <li class="{{ Request::routeIs('subject') ? 'active' : '' }}"><a class="nav-link"
+                                    href="{{ route('subject.index') }}">Keterangan</a></li>
+                        </ul>
                     </li>
                 @else
                     @foreach ($link->href as $section)
