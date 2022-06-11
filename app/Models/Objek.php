@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Objek extends Model
 {
     use HasFactory;
+    protected $fillable = ['kata_objek'];
 }

@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Subjek extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['kata_subjek'];
 }
