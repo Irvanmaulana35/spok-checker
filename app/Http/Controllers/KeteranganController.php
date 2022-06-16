@@ -14,8 +14,8 @@ class KeteranganController extends Controller
      */
     public function index()
     {
-        $data = Keterangan::all();
-        return view('pages.keterangan.index', compact('data'));
+        $keterangan = Keterangan::all();
+        return view('pages.keterangan.index', compact('keterangan'));
     }
 
     /**
@@ -25,7 +25,7 @@ class KeteranganController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.keterangan.create') ;
     }
 
     /**
@@ -36,19 +36,31 @@ class KeteranganController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'kata_keterangan' => 'required|string|max:155',
+
+        ]);
+
+        $keterangan = Keterangan::create([
+            'kata_keterangan' => $request->kata_keterangan,
+        ]);
+
+        if ($keterangan) {
+            return redirect()
+                ->route('keterangan.index')
+                ->with([
+                    'success' => 'kata keterangan berhasil di tambah'
+                ]);
+        } else {
+            return redirect()
+                ->back()
+                ->withInput()
+                ->with([
+                    'error' => 'Error, please try again'
+                ]);
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -58,7 +70,8 @@ class KeteranganController extends Controller
      */
     public function edit($id)
     {
-        //
+        $keterangan = Keterangan::findOrFail($id);
+        return view('pages.keterangan.edit', compact('keterangan'));
     }
 
     /**
@@ -70,7 +83,36 @@ class KeteranganController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'kata_keterangan' => 'required|string|max:155',
+
+        ]);
+
+        $keterangan = Keterangan::create([
+            'kata_keterangan' => $request->kata_keterangan,
+        ]);
+
+        $keterangan = Keterangan::findOrFail($id);
+
+        $keterangan->update([
+            'kata_keterangan' => $request->kata_keterangan,
+
+        ]);
+
+        if ($keterangan) {
+            return redirect()
+                ->route('keterangan.index')
+                ->with([
+                    'success' => 'kata keterangan berhasil di edit'
+                ]);
+        } else {
+            return redirect()
+                ->back()
+                ->withInput()
+                ->with([
+                    'error' => 'Error, please try again'
+                ]);
+        }
     }
 
     /**
@@ -81,6 +123,21 @@ class KeteranganController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $keterangan = Keterangan::findOrFail($id);
+        $keterangan->delete();
+
+        if ($keterangan) {
+            return redirect()
+                ->route('keterangan.index')
+                ->with([
+                    'success' => 'kata keterangan berhasil di hapus'
+                ]);
+        } else {
+            return redirect()
+                ->route('keterangan.index')
+                ->with([
+                    'error' => 'Some problem has occurred, please try again'
+                ]);
+        }
     }
 }
