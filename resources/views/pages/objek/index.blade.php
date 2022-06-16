@@ -5,7 +5,7 @@
         <div class="section-header-breadcrumb">
             <div class="breadcrumb-item active"><a href="{{ route('dashboard') }}">Dashboard</a></div>
             <div class="breadcrumb-item"><a href="#">Objek</a></div>
-            <div class="breadcrumb-item"><a href="{{ route('objek.index') }}">Data Objek</a></div>
+            <div class="breadcrumb-item"><a href="{{ route('object.index') }}">Data Objek</a></div>
         </div>
     </x-slot>
 
@@ -14,7 +14,7 @@
             <div class="card">
 
                 <div class="card-body">
-                    <a href="{{ route('objek.create') }}" class="btn btn-primary mb-2 mt-2">Tambah Data</a>
+                    <a href="{{ route('object.create') }}" class="btn btn-primary mb-2 mt-2">Tambah Data</a>
                     @include('messages.alert')
                     <div class="table-responsive">
                         <table class="table table-bordered table-md">
@@ -31,9 +31,9 @@
                                         <td>{{ $item->kata_objek }}</td>
                                         <td>{{ $item->created_at }}</td>
                                         <td>
-                                            <a href="{{ route('subject.edit', $item->id) }}"
+                                            <a href="{{ route('object.edit', $item->id) }}"
                                                 class="btn btn-success">Edit</a>
-                                            <form action="{{ route('objek.destroy', $item->id) }} "
+                                            <form action="{{ route('object.destroy', $item->id) }} "
                                                 class='ml-1 delete-form' method='POST'>
                                                 @csrf
                                                 <input type='hidden' name='_method' value='delete'>

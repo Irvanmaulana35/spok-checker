@@ -84,10 +84,6 @@ class KeteranganController extends Controller
 
         ]);
 
-        $keterangan = Keterangan::create([
-            'kata_keterangan' => $request->kata_keterangan,
-        ]);
-
         $keterangan = Keterangan::findOrFail($id);
 
         $keterangan->update([
