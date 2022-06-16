@@ -33,6 +33,7 @@
                                         <td>
                                             <a href="{{ route('object.edit', $item->id) }}"
                                                 class="btn btn-success">Edit</a>
+                                                
                                             <form action="{{ route('object.destroy', $item->id) }} "
                                                 class='ml-1 delete-form' method='POST'>
                                                 @csrf

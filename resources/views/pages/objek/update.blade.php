@@ -5,7 +5,7 @@
         <div class="section-header-breadcrumb">
             <div class="breadcrumb-item active"><a href="{{ route('dashboard') }}">Dashboard</a></div>
             <div class="breadcrumb-item"><a href="#">Objek</a></div>
-            <div class="breadcrumb-item"><a href="{{ route('objek.index') }}">Data Objek</a></div>
+            <div class="breadcrumb-item"><a href="{{ route('object.index') }}">Data Objek</a></div>
         </div>
     </x-slot>
 
@@ -14,7 +14,7 @@
             <div class="card">
 
                 <div class="card-body">
-                    <form action="{{ route('objek.update', $objek->id) }}" method="POST">
+                    <form action="{{ route('object.update', $objek->id) }}" method="POST">
                         @csrf
                         @method('PUT')
 
@@ -32,7 +32,7 @@
                         </div>
 
                         <div class="text-center">
-                            <a href="{{ route('objek.index') }}" class="btn btn-secondary" title="Back"><i
+                            <a href="{{ route('object.index') }}" class="btn btn-secondary" title="Back"><i
                                     class="fas fa-arrow-left"></i> Back</a>
                             <button class="btn btn-primary" title="Save">Update <i class="fas fa-save"></i></button>
                         </div>

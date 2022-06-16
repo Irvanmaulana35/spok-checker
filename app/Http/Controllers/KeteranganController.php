@@ -41,6 +41,10 @@ class KeteranganController extends Controller
 
         ]);
 
+        $keterangan = Keterangan::create([
+            'kata_keterangan' => $request->kata_keterangan,
+        ]);
+
         if ($keterangan) {
             return redirect()
                 ->route('keterangan.index')

@@ -29,6 +29,7 @@ Route::group(["middleware" => ['auth:sanctum', 'verified']], function () {
     Route::resource('predikat', PredikatController::class);
     Route::resource('object', ObjectController::class);
     Route::resource('keterangan', KeteranganController::class);
+    Route::resource('kalimat', KalimatController::class);
 
     Route::get('/user', [UserController::class, "index_view"])->name('user');
     Route::view('/user/new', "pages.user.user-new")->name('user.new');

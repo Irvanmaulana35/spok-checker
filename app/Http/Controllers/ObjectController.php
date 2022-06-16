@@ -41,10 +41,13 @@ class ObjectController extends Controller
 
         ]);
 
+        $objek = Objek::create([
+            'kata_objek' => $request->kata_objek,
+        ]);
 
         if ($objek) {
             return redirect()
-                ->route('objek.index')
+                ->route('object.index')
                 ->with([
                     'success' => 'Kata objek berhasil di tambah'
                 ]);
