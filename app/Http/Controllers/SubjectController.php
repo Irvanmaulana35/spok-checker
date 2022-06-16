@@ -88,10 +88,6 @@ class SubjectController extends Controller
 
         ]);
 
-        $subjek = Subjek::create([
-            'kata_subjek' => $request->kata_subjek,
-        ]);
-
         $subjek = Subjek::findOrFail($id);
 
         $subjek->update([

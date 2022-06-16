@@ -88,10 +88,6 @@ class ObjectController extends Controller
 
         ]);
 
-        $objek = Objek::create([
-            'kata_objek' => $request->kata_objek,
-        ]);
-
         $objek = Objek::findOrFail($id);
 
         $objek->update([

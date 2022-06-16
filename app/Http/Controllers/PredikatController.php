@@ -95,10 +95,6 @@ class PredikatController extends Controller
 
         ]);
 
-        $predikat = Predikat::create([
-            'kata_predikat' => $request->kata_predikat,
-        ]);
-
         $predikat = Predikat::findOrFail($id);
 
         $predikat->update([
