@@ -37,7 +37,7 @@ class KeteranganController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'kata_keterangan' => 'required|string|max:155',
+            'kata_keterangan' => 'required|string|max:155|unique:keterangans',
 
         ]);
 
@@ -53,10 +53,9 @@ class KeteranganController extends Controller
                 ]);
         } else {
             return redirect()
-                ->back()
-                ->withInput()
+                ->route('keterangan.create')
                 ->with([
-                    'error' => 'Error, please try again'
+                    'error' => 'kata keterangan sudah ada'
                 ]);
         }
     }
@@ -71,7 +70,7 @@ class KeteranganController extends Controller
     public function edit($id)
     {
         $keterangan = Keterangan::findOrFail($id);
-        return view('pages.keterangan.edit', compact('keterangan'));
+        return view('pages.keterangan.update', compact('keterangan'));
     }
 
     /**

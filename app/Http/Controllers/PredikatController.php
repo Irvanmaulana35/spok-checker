@@ -37,7 +37,7 @@ class PredikatController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'kata_predikat' => 'required|string|max:155',
+            'kata_predikat' => 'required|string|max:155|unique:predikats',
 
         ]);
 

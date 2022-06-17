@@ -84,7 +84,7 @@ class SubjectController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'kata_subjek' => 'required|string|max:155',
+            'kata_subjek' => 'required|string|max:155|unique:subjeks',
 
         ]);
 

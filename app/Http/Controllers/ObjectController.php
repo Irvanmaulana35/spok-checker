@@ -37,7 +37,7 @@ class ObjectController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'kata_objek' => 'required|string|max:155',
+            'kata_objek' => 'required|string|max:155|unique:objeks',
 
         ]);
 
